@@ -41,8 +41,9 @@ function home(){
     // alert('home');
     $('body')
         .append(menu())
+        .append($('<div></div>').css({'height':'20px'}))
         .append($('<div></div>')
-            .append($('<img src="https://avatars.githubusercontent.com/u/85472190?v=4"></img>'))
+            .append($('<img src="https://avatars.githubusercontent.com/u/98379477"></img>'))
         );
 }
 function blog(){
