@@ -41,13 +41,17 @@ function home(){
     // alert('home');
     $('body')
         .append(menu())
-        .append($('<div></div>').css({'height':'20px'}))
+        .append($('<div></div>').css({'height':'60px'}))
         .append($('<div></div>')
-            .append($('<img src="https://avatars.githubusercontent.com/u/98379477"></img>'))
+            .append($('<img src="https://avatars.githubusercontent.com/u/98379477"></img>')
+                .css({'width':'100px','height':'100px'}))
+            .append($('<p>我是一位五年级的男生,喜欢编程</p>'))
         );
 }
 function blog(){
-    menu();
+    document.title='博客';
+    $('body')
+        .append(menu());
 }
 function blogsub(){
     if(location.hash.search('blogsub')!=-1)
