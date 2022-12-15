@@ -1,4 +1,5 @@
 (window.onhashchange=function(){
+    // alert(location.hash);
     switch(location.hash)
     {
         case '':
@@ -6,6 +7,7 @@
             location.hash='#/home';
         case '#/home': 
             $('body').html('');
+            // alert('home');
             home();
             break;
         case '#/blog': 
@@ -18,24 +20,30 @@
             break;
     }
 })();
+function createMenuItem(name,side){
+    return $('<a></a>')
+            .attr('class','item')
+            .css({'border':'solid gray 2px','padding':'5px','cursor':'pointer'})
+            .click(function(){
+                location.hash=side;
+            })
+            .text(name)
+}
 function menu(){
     return $('<div></div>')
         .attr('class','menu')
-        .css({'position':'absolute','top':'0px','left':'0px'})
-        .append($('<a></a>')
-            .attr('class','item')
-            .attr('id','item1')
-            .click(function(){
-                location.hash='#/home';
-            })
-            .text('主页')
-    );
+        .css({'position':'absolute','top':'2%','left':'2px'})
+        .append(createMenuItem('主页','#/home'))
+        .append(createMenuItem('文章','#/blog'));
 }
 function home(){
     document.titie='主页';
+    // alert('home');
     $('body')
         .append(menu())
-        .append($('<div></div>'));
+        .append($('<div></div>')
+            .append($('<img src="https://avatars.githubusercontent.com/u/85472190?v=4"></img>'))
+        );
 }
 function blog(){
     menu();
